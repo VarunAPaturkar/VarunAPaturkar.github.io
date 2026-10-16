@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Varun A. Paturkar</title>
+<meta name="description" content="Varun A. Paturkar, PhD student at CVIT, IIIT Hyderabad, working on safe and reliable perception and reasoning for autonomous driving.">
+<meta property="og:title" content="Varun A. Paturkar">
+<meta property="og:description" content="PhD student at CVIT, IIIT Hyderabad. Safe and reliable perception and reasoning for autonomous driving.">
+<meta property="og:image" content="images/profile.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231A4E8A'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='white' text-anchor='middle'%3EVP%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap">
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #1f2328;
+    --muted: #57606a;
+    --line: #e5e7eb;
+    --soft: #f5f6f8;
+    --link: #1a4e8a;
+    --link-hover: #0e3463;
+    --tag-bg: #eef3fa;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #121417;
+      --text: #e6e8eb;
+      --muted: #a2a9b3;
+      --line: #2a2e34;
+      --soft: #1a1d21;
+      --link: #8ab4f0;
+      --link-hover: #b5d0f7;
+      --tag-bg: #1d2a3b;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 18px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--link); text-decoration: none; }
+  a:hover { color: var(--link-hover); text-decoration: underline; }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 20px 64px; }
+
+  /* Nav */
+  nav {
+    display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;
+    gap: 8px 16px; padding: 24px 0;
+    font-family: "IBM Plex Sans", system-ui, sans-serif; font-size: 15px;
+  }
+  nav .name { font-weight: 600; color: var(--text); }
+  nav .links { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+  nav .links a { color: var(--text); padding: 8px 0; }
+  nav .links a:hover { color: var(--link); text-decoration: none; }
+
+  /* Intro */
+  .intro { display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start; padding: 32px 0 40px; }
+  .intro img {
+    width: 190px; height: 190px; border-radius: 14px; object-fit: cover; flex: 0 0 190px;
+  }
+  .intro .text { flex: 999 1 380px; min-width: 0; }
+  h1 { margin: 0 0 4px; font-size: 40px; font-weight: 600; line-height: 1.15; }
+  .role {
+    font-family: "IBM Plex Sans", system-ui, sans-serif; font-size: 16px; color: var(--muted); margin-bottom: 16px;
+  }
+  .intro p { margin: 0 0 14px; }
+  .contact {
+    display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 6px;
+    font-family: "IBM Plex Sans", system-ui, sans-serif; font-size: 15px; font-weight: 500;
+  }
+
+  /* Sections */
+  section { padding: 30px 0; border-top: 1px solid var(--line); }
+  h2 { margin: 0 0 16px; font-size: 25px; font-weight: 600; }
+  .note { font-family: "IBM Plex Sans", system-ui, sans-serif; font-size: 15px; color: var(--muted); }
+
+  /* News */
+  .news { list-style: none; margin: 0; padding: 0; }
+  .news li { display: flex; flex-wrap: wrap; gap: 2px 20px; padding: 7px 0; }
+  .news .date {
+    flex: 0 0 78px; font-family: "IBM Plex Mono", monospace; font-size: 14px; color: var(--muted); padding-top: 4px;
+  }
+  .news .item { flex: 999 1 300px; min-width: 0; }
+  figure { margin: 18px 0 4px; }
+  figure img { width: 100%; max-width: 360px; border-radius: 12px; display: block; }
+  figcaption { font-family: "IBM Plex Sans", system-ui, sans-serif; font-size: 14px; color: var(--muted); margin-top: 8px; }
+
+  /* Publications */
+  .pub { padding: 12px 0 14px; }
+  .pub + .pub { border-top: 1px dashed var(--line); }
+  .pub .title { font-weight: 600; }
+  .pub .authors { font-size: 16px; }
+  .pub .authors b { font-weight: 600; }
+  .pub .venue { font-size: 16px; font-style: italic; color: var(--muted); }
+  .pub .summary { font-size: 16px; margin-top: 4px; }
+  .pub .plinks { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 6px; font-family: "IBM Plex Sans", system-ui, sans-serif; font-size: 14px; font-weight: 500; }
+  .tag {
+    display: inline-block; font-family: "IBM Plex Sans", system-ui, sans-serif; font-style: normal; font-size: 12px;
+    font-weight: 600; letter-spacing: 0.02em; color: var(--link); background: var(--tag-bg);
+    border-radius: 6px; padding: 1px 7px; margin-left: 6px; vertical-align: 2px;
+  }
+  h3 { margin: 22px 0 4px; font-family: "IBM Plex Sans", system-ui, sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+
+  /* Experience */
+  .exp { display: flex; flex-wrap: wrap; gap: 0 20px; padding: 8px 0; }
+  .exp .when { flex: 0 0 150px; font-family: "IBM Plex Mono", monospace; font-size: 14px; color: var(--muted); padding-top: 4px; }
+  .exp .what { flex: 999 1 300px; min-width: 0; }
+  .exp .org { color: var(--muted); font-size: 16px; }
+
+  /* Simple lists */
+  ul.plain { margin: 0; padding-left: 20px; }
+  ul.plain li { margin: 4px 0; }
+
+  footer { padding-top: 28px; border-top: 1px solid var(--line); font-family: "IBM Plex Sans", system-ui, sans-serif; font-size: 14px; color: var(--muted); }
+
+  @media (max-width: 560px) {
+    body { font-size: 17px; }
+    h1 { font-size: 32px; }
+    .intro img { width: 150px; height: 150px; flex-basis: 150px; }
+    .exp .when, .news .date { flex-basis: 100%; padding-top: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav>
+  <span class="name">Varun A. Paturkar</span>
+  <div class="links">
+    <a href="#news">News</a>
+    <a href="#publications">Publications</a>
+    <a href="#experience">Experience</a>
+    <a href="#talks">Talks</a>
+    <a href="Varun_Paturkar_CV.pdf">CV</a>
+  </div>
+</nav>
+
+<header class="intro" id="about">
+  <img src="images/profile.jpg" alt="Varun A. Paturkar">
+  <div class="text">
+    <h1>Varun A. Paturkar</h1>
+    <div class="role">PhD Student, Computer Science and Engineering · CVIT, IIIT Hyderabad</div>
+    <p>
+      I am a PhD student at the <a href="https://cvit.iiit.ac.in/">Center for Visual Information Technology (CVIT)</a>,
+      IIIT Hyderabad, advised by <a href="https://www.iiit.ac.in/faculty/jawahar-c-v/">Prof. C. V. Jawahar</a>.
+      I work on safe and reliable perception and reasoning for autonomous driving in real-world conditions.
+      My current work focuses on building and evaluating trustworthy vision-language models for driving,
+      in collaboration with Bosch Research India.
+    </p>
+    <p>
+      It started with a childhood collection of toy cars. Wanting to know how real ones worked took me into
+      mechanical engineering, and from there to computer vision for autonomous vehicles: first visual place
+      recognition at IIIT Allahabad with <a href="https://www.rkala.in/?i=2">Prof. Rahul Kala</a>, then several
+      years building vision systems in industry. Today much of my research focuses on two-wheelers, the most
+      vulnerable and least studied road users in dense, unstructured Indian traffic.
+    </p>
+    <p>
+      Away from research, you will usually find me watching live sport, or talking about it: cricket, the NBA,
+      the NFL, UFC, and a list that keeps getting longer.
+    </p>
+    <div class="contact">
+      <a href="mailto:paturkarvarun@gmail.com">Email</a>
+      <a href="Varun_Paturkar_CV.pdf">CV</a>
+      <a href="https://scholar.google.com/citations?user=vVPJeQQAAAAJ&amp;hl=en">Google Scholar</a>
+      <a href="https://github.com/VarunIIITH">GitHub</a>
+    </div>
+  </div>
+</header>
+
+<section id="news">
+  <h2>News</h2>
+  <ul class="news">
+    <li><span class="date">2026</span><span class="item"><b>MotoVerse</b> accepted at <b>WACV 2027</b> (Datasets Track).</span></li>
+    <li><span class="date">2026</span><span class="item">Presented <b>MOTOR</b> at <b>ICRA 2026</b> in Vienna, supported by an IEEE RAS travel grant.</span></li>
+    <li><span class="date">2026</span><span class="item">Gave a tutorial on Transformers at the CVIT Summer School, IIIT Hyderabad.</span></li>
+    <li><span class="date">2026</span><span class="item">Gave a talk, “From Pixels to Actions”, at the CIE-IIITH CV Labs Workshop (8th Edition).</span></li>
+    <li><span class="date">2026</span><span class="item"><b>MOTOR</b> accepted at <b>ICRA 2026</b>; the <a href="https://huggingface.co/datasets/varunpaturkar/MOTOR">dataset</a> and <a href="https://github.com/VarunIIITH/MOTOR">code</a> are public.</span></li>
+    <li><span class="date">Aug 2025</span><span class="item">Started my PhD in Computer Science and Engineering at IIIT Hyderabad.</span></li>
+    <li><span class="date">Jan 2025</span><span class="item">Joined CVIT, IIIT Hyderabad as a research intern.</span></li>
+  </ul>
+  <figure>
+    <img src="images/icra2026-poster.jpg" alt="Varun presenting the MOTOR poster at ICRA 2026 in Vienna" loading="lazy">
+    <figcaption>Presenting MOTOR at ICRA 2026, Vienna.</figcaption>
+  </figure>
+</section>
+
+<section id="publications">
+  <h2>Publications</h2>
+  <div class="note">See also <a href="https://scholar.google.com/citations?user=vVPJeQQAAAAJ&amp;hl=en">Google Scholar</a>. * corresponding author.</div>
+
+  <div class="pub">
+    <div class="title">MotoVerse: A Benchmark for Predictive Perception of Motorized Two-Wheelers in Dense Unstructured Traffic <span class="tag">WACV 2027</span></div>
+    <div class="authors"><b>Varun A. Paturkar</b>, Shankar Gangisetty, C. V. Jawahar</div>
+    <div class="venue">IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), Datasets Track, 2027 (to appear)</div>
+    <div class="summary">The first benchmark for anticipating a rider's next manoeuvre and forecasting the paths of surrounding traffic, from a single front camera on a two-wheeler.</div>
+  </div>
+
+  <div class="pub">
+    <div class="title">MOTOR: A Multimodal Dataset for Two-Wheeler Rider Behavior Understanding <span class="tag">ICRA 2026</span></div>
+    <div class="authors"><b>Varun A. Paturkar</b>, Shankar Gangisetty, C. V. Jawahar</div>
+    <div class="venue">IEEE International Conference on Robotics and Automation (ICRA), 2026</div>
+    <div class="summary">A multi-view, multimodal dataset of two-wheeler riding in dense traffic, with rider gaze, audio and telemetry, and labels for riding manoeuvres and their legality.</div>
+    <div class="plinks">
+      <a href="https://ieeexplore.ieee.org/iel8/11695711/11695694/11696157.pdf">Paper</a>
+      <a href="https://arxiv.org/abs/2605.22550">arXiv</a>
+      <a href="https://github.com/VarunIIITH/MOTOR">Code</a>
+      <a href="https://huggingface.co/datasets/varunpaturkar/MOTOR">Dataset</a>
+    </div>
+  </div>
+
+  <div class="pub">
+    <div class="title">Sequential Place Recognition using Semantically Enhanced Images</div>
+    <div class="authors"><b>Varun A. Paturkar</b>, R. Yadav, R. Kala</div>
+    <div class="venue">Multimedia Tools and Applications (Springer), 2023</div>
+  </div>
+
+  <h3>Under review</h3>
+  <div class="pub">
+    <div class="title">LadderDrive: Evaluating Granularity and Reliability of Vision Language Models in Driving Scenarios</div>
+    <div class="authors"><b>Varun A. Paturkar*</b>, Sreenivas Narasimha Murali, Sangeeth Sudhakar Nambiar, Shankar Gangisetty, C. V. Jawahar</div>
+    <div class="venue">Under review, 2026 · in collaboration with Bosch Research India</div>
+    <div class="summary">An object-centric diagnostic benchmark that tests the granularity and reliability of driving VLMs and VLAs within the perception, prediction and planning stages.</div>
+  </div>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+  <div class="exp">
+    <div class="when">Aug 2025 – now</div>
+    <div class="what"><b>PhD Researcher</b><div class="org">CVIT, IIIT Hyderabad, advised by Prof. C. V. Jawahar</div></div>
+  </div>
+  <div class="exp">
+    <div class="when">Jan – Aug 2025</div>
+    <div class="what"><b>Research Intern</b><div class="org">CVIT, IIIT Hyderabad</div></div>
+  </div>
+  <div class="exp">
+    <div class="when">2021 – 2025</div>
+    <div class="what"><b>Machine Learning Engineer</b><div class="org">Navajna Technologies, Hyderabad. Driver-monitoring data program with Mercedes-Benz R&amp;D India; crowd-safety analysis with Prof. Dinesh Manocha (University of Maryland)</div></div>
+  </div>
+  <div class="exp">
+    <div class="when">2021 – 2023</div>
+    <div class="what"><b>Research Assistant (Part-time)</b><div class="org">IIIT Allahabad, with Prof. Rahul Kala</div></div>
+  </div>
+  <div class="exp">
+    <div class="when">2016 – 2020</div>
+    <div class="what"><b>B.E., Mechanical Engineering</b><div class="org">Sir M. Visvesvaraya Institute of Technology, Bengaluru</div></div>
+  </div>
+</section>
+
+<section id="talks">
+  <h2>Talks &amp; Service</h2>
+  <ul class="plain">
+    <li>Paper presentation, <b>MOTOR</b>, ICRA 2026, Vienna</li>
+    <li>Tutorial, <b>Transformers</b>, CVIT Summer School 2026, IIIT Hyderabad</li>
+    <li>Talk, <b>“From Pixels to Actions”</b>, CIE-IIITH CV Labs Workshop (8th Edition), 2026</li>
+    <li>Reviewer for ICRA, IROS, WACV and ACCV</li>
+  </ul>
+</section>
+
+<footer>
+  © 2026 Varun A. Paturkar · Last updated October 2026
+</footer>
+
+</div>
+</body>
+</html>
