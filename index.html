@@ -9,6 +9,17 @@
 <meta property="og:description" content="PhD student at CVIT, IIIT Hyderabad. Safe and reliable perception and reasoning for autonomous driving.">
 <meta property="og:image" content="images/profile.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231A4E8A'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='white' text-anchor='middle'%3EVP%3C/text%3E%3C/svg%3E">
+<script>
+  // Apply the saved or system theme before the page paints, so there is no flash.
+  (function () {
+    var t = null;
+    try { t = localStorage.getItem("theme"); } catch (e) {}
+    if (t !== "light" && t !== "dark") {
+      t = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    document.documentElement.setAttribute("data-theme", t);
+  })();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap">
@@ -23,8 +34,9 @@
     --link-hover: #0e3463;
     --tag-bg: #eef3fa;
   }
+  /* Dark theme: follows the system unless the visitor picks light or dark with the toggle */
   @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not([data-theme="light"]) {
       --bg: #121417;
       --text: #e6e8eb;
       --muted: #a2a9b3;
@@ -34,6 +46,16 @@
       --link-hover: #b5d0f7;
       --tag-bg: #1d2a3b;
     }
+  }
+  :root[data-theme="dark"] {
+    --bg: #121417;
+    --text: #e6e8eb;
+    --muted: #a2a9b3;
+    --line: #2a2e34;
+    --soft: #1a1d21;
+    --link: #8ab4f0;
+    --link-hover: #b5d0f7;
+    --tag-bg: #1d2a3b;
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -57,7 +79,19 @@
     font-family: "IBM Plex Sans", system-ui, sans-serif; font-size: 15px;
   }
   nav .name { font-weight: 600; color: var(--text); }
-  nav .links { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+  nav .links { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 20px; margin-left: auto; }
+  .theme-toggle {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 40px; height: 40px; margin-left: 4px; padding: 0;
+    border: 1px solid var(--line); border-radius: 999px;
+    background: transparent; color: var(--text); cursor: pointer;
+  }
+  .theme-toggle:hover { border-color: var(--muted); }
+  .theme-toggle:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+  .theme-toggle svg { width: 18px; height: 18px; }
+  .theme-toggle .moon { display: none; }
+  :root[data-theme="dark"] .theme-toggle .sun { display: none; }
+  :root[data-theme="dark"] .theme-toggle .moon { display: block; }
   nav .links a { color: var(--text); padding: 8px 0; }
   nav .links a:hover { color: var(--link); text-decoration: none; }
 
@@ -123,6 +157,9 @@
     h1 { font-size: 32px; }
     .intro img { width: 150px; height: 150px; flex-basis: 150px; }
     .exp .when, .news .date { flex-basis: 100%; padding-top: 0; }
+    /* Name and theme toggle share the top row; the section links wrap underneath */
+    nav .theme-toggle { margin-left: auto; }
+    nav .links { order: 3; flex-basis: 100%; margin-left: 0; }
   }
 </style>
 </head>
@@ -138,6 +175,15 @@
     <a href="#talks">Talks</a>
     <a href="Varun_Paturkar_CV.pdf">CV</a>
   </div>
+  <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch theme">
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+      </svg>
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+      </svg>
+    </button>
 </nav>
 
 <header class="intro" id="about">
@@ -158,7 +204,7 @@
       <a href="https://www.cs.umd.edu/people/dmanocha">Prof. Dinesh Manocha</a>.
     </p>
     <p>
-      When I'm not thinking about cars or traffic, I'm probably watching live sports or discussing them: cricket,
+      When I'm not thinking about cars or traffic, I'm probably watching live sports or discussing them: Cricket,
       the NBA, the NFL, UFC, and a list that keeps growing.
     </p>
     <div class="contact">
@@ -252,5 +298,23 @@
 </footer>
 
 </div>
+<script>
+  // Light / dark toggle: remembers the visitor's choice in this browser.
+  (function () {
+    var root = document.documentElement;
+    var btn = document.querySelector(".theme-toggle");
+    function label() {
+      var dark = root.getAttribute("data-theme") === "dark";
+      btn.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+    }
+    label();
+    btn.addEventListener("click", function () {
+      var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem("theme", next); } catch (e) {}
+      label();
+    });
+  })();
+</script>
 </body>
 </html>
