@@ -158,9 +158,14 @@
     h1 { font-size: 32px; }
     .intro img { width: 160px; flex-basis: 160px; }
     .exp .when, .news .date { flex-basis: 100%; padding-top: 0; }
-    /* Name and theme toggle share the top row; the section links wrap underneath */
-    nav .theme-toggle { margin-left: auto; }
-    nav .links { order: 3; flex-basis: 100%; margin-left: 0; }
+    /* Section links and theme toggle share one compact row */
+    nav { flex-wrap: nowrap; gap: 10px; font-size: 14px; }
+    nav .links { margin-left: 0; gap: 4px 13px; flex-wrap: wrap; }
+    nav .theme-toggle { margin-left: auto; flex: 0 0 36px; width: 36px; height: 36px; }
+  }
+  @media (max-width: 380px) {
+    nav { font-size: 13.5px; gap: 8px; }
+    nav .links { gap: 4px 9px; }
   }
 </style>
 </head>
@@ -168,7 +173,6 @@
 <div class="wrap">
 
 <nav>
-  <span class="name">Varun A. Paturkar</span>
   <div class="links">
     <a href="#news">News</a>
     <a href="#publications">Publications</a>
